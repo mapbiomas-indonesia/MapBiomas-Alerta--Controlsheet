@@ -126,7 +126,7 @@ class AlertAnalisComponent extends Component
 
     public function closeReason(){
         $this->selectStatus = session('selectStatus');
-        redirect()->to(url()->previous());
+        $this->isAudit = false;
         // dd(session()->all());
     }
 
