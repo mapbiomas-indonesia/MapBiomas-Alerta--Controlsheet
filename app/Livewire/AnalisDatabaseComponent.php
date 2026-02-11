@@ -59,10 +59,23 @@ class AnalisDatabaseComponent extends Component
     public function fixAlert($id){
         if ($this->alertStatus === 'reexportimage') {
             $newStatus = 'pre-approved';
+
+            DB::table('auditorlog')->insert([
+                'auditorId' => session('id'),
+                'alertId' => $id,
+                'ngapain' => 'reexportimage',
+                'created_at' => Carbon::now('Asia/Jakarta')
+            ]);
         } elseif ($this->alertStatus === 'reclassification') {
             $newStatus = 'refined';
+            DB::table('auditorlog')->insert([
+                'auditorId' => session('id'),
+                'alertId' => $id,
+                'ngapain' => 'reclassification',
+                'created_at' => Carbon::now('Asia/Jakarta')
+            ]);
         } else {
-            $newStatus = null;
+            $newStatus = 'pending';
         }
 
 

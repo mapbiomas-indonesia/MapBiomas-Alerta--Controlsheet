@@ -140,6 +140,14 @@ class EditAlertComponent extends Component
                 'platformStatus' => $this->platformStatus,
                 'updated_at' => Carbon::now('Asia/Jakarta')
             ]);
+            if($this->alertStatus == 'rejected'){
+                DB::table('auditorlog')->insert([
+                    'auditorId' => session('id'),
+                    'alertId' => $this->idAlert,
+                    'ngapain' => 'Reject',
+                    'created_at' => Carbon::now('Asia/Jakarta')
+                ]);
+            }
             redirect()->to('/alerts');
         }
     }

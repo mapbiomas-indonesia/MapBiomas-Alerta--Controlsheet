@@ -130,7 +130,15 @@ class AddAlertComponent extends Component
                 'platformStatus' => 'sccon',
                 'created_at' => Carbon::now('Asia/Jakarta')
             ]);
+
+            DB::table('auditorlog')->insert([
+                'auditorId' => session('id'),
+                'alertId' => $this->alertId,
+                'ngapain' =>  ($this->alertStatus == 'rejected') ? 'Reject' : 'Insert',
+                'created_at' => Carbon::now('Asia/Jakarta')
+            ]);
             redirect()->to('/dashboard');
+
         }
     }
 

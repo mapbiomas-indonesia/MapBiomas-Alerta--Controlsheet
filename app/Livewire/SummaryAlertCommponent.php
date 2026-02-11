@@ -42,8 +42,8 @@ class SummaryAlertCommponent extends Component
             return $q->whereYear('alerts.detectionDate', $this->yearAlert);
         })
         ->where('alerts.isActive', 1)
-        ->where('users.is_active', 1)      // 🔥 filter only active users
-        ->groupBy('alerts.auditorStatus')  // must match selectRaw field
+        ->where('users.is_active', 1)
+        ->groupBy('alerts.auditorStatus')
         ->get();
 
     // Add Grand Total manually
