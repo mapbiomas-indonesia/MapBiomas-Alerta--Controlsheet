@@ -46,6 +46,12 @@ class ValidatorTaskComponent extends Component
             )
             ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDate, $this->endDate])
             ->where('users.is_active', 1)
+            ->whereIn('auditorlog.ngapain', [
+                'Insert',
+                'Reject',
+                'Reclassification',
+                'ReexportImage'
+            ])
             ->groupBy('users.name', 'users.id', DB::raw("DATE(auditorlog.created_at)"))
             ->orderBy('users.name')
             ->get();
