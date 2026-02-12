@@ -59,8 +59,8 @@
                             </th>
                         @endforeach
 
-                        <!-- Total -->
-                        <th class="border-b border-gray-300 px-4 py-2 text-center whitespace-nowrap">
+                       {{-- Sticky Right Total --}}
+                        <th class="sticky right-0 bg-gray-100 border-b border-gray-300 px-4 py-2 text-xs text-center z-20">
                             Total
                         </th>
                     </tr>
