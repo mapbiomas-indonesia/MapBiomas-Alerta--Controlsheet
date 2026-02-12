@@ -39,10 +39,10 @@ class ValidatorTaskComponent extends Component
                 'users.id as auditorId',
                 DB::raw("DATE(auditorlog.created_at) as d"),
                 DB::raw("COUNT(DISTINCT auditorlog.alertId) as total"),
-                DB::raw("SUM(auditorlog.ngapain = 'Insert') as total_Insert"),
-                DB::raw("SUM(auditorlog.ngapain = 'Reject') as total_Reject"),
-                DB::raw("SUM(auditorlog.ngapain = 'reclassification') as total_reclassification"),
-                DB::raw("SUM(auditorlog.ngapain = 'reexportImage') as total_reexportimage")
+                DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'Insert' THEN auditorlog.alertId END) as total_Insert"),
+                DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'Reject' THEN auditorlog.alertId END) as total_Reject"),
+                DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'reclassification' THEN auditorlog.alertId END) as total_reclassification"),
+                DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'reexportImage' THEN auditorlog.alertId END) as total_reexportimage")
             )
             ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDate, $this->endDate])
             ->where('users.is_active', 1)
