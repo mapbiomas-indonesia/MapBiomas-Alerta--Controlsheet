@@ -102,7 +102,7 @@ class AuditorDatabaseComponent extends Component
     public function closeReason()
     {
         $this->selectStatus = session('selectStatus');
-        $this->isAudit = false;
+       redirect()->to(url()->previous());
         // dd(session()->all());
     }
 

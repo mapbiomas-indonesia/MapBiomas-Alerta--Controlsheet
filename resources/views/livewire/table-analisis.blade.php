@@ -1,9 +1,9 @@
-<div class="mt-2  py-6 px-4 border border-gray-100 z-20 relative  bg-white">
-    <a class="text-sm ">Alert Need to Fix</a>
+<div class="mt-2  py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50">
+    <a class="text-base mb-1 font-semibold">Alert Need to Fix</a>
     <div x-data="{ open: @entangle('isReason') }">
         @include('partials.auditorReason')
     </div>
-    <input class="sm:w-52 w-full py-1 border-gray-500 border px-2 focus:outline-none mt-2 text-xs" wire:model.live='search' placeholder="alert ID">
+    <input class="sm:w-52 w-full py-1 bg-white border-gray-500 border px-2 focus:outline-none mt-2 text-xs" wire:model.live='search' placeholder="alert ID">
     <div class="mt-4">
         <table class="w-full divide-y divide-gray-200  rounded-sm  border border-gray-100">
             <thead class=" text-xs">

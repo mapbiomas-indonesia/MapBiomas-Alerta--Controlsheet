@@ -41,9 +41,7 @@ class AnalisDatabaseComponent extends Component
 
     public function closeReason(){
         $this->isReason = false;
-        $this->alertId = null;
-        $this->alertStatus = null;
-        $this->alertReason = null;
+        redirect()->to(url()->previous());
     }
 
     public function showReason($id){

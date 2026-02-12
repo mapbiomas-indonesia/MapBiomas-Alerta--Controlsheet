@@ -1,6 +1,6 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-white mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4">
     <div class="text-sm mb-6">
-        <a>Alert status by region</a>
+        <a class="text-base mb-1 font-semibold">Alert status by region</a>
     </div>
 
     <div class="overflow-y-auto w-full">

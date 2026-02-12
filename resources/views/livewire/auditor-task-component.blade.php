@@ -1,6 +1,6 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-white mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-100 mt-4">
     <div class="text-sm mb-6">
-        <a>Alert by Auditor</a>
+        <a class="text-base mb-1 font-semibold">Alert by Auditor</a>
         <div class="w-full mt-1 flex gap-2" wire:ignore x-init="
         flatpickr('#rangeAuditor', {
             mode:'range',

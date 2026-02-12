@@ -1,5 +1,5 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-white">
-    <div class="text-sm mb-6">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 ">
+    <div class="text-base mb-1 font-semibold ">
         <a>Alert status by region</a>
     </div>
 

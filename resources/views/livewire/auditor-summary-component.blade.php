@@ -1,7 +1,7 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-white mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4">
     <div class="flex sm:flex-row flex-col sm:gap-6 gap-2 mb-6">
         <div class="text-sm ">
-            <a>Alert by Auditor</a>
+            <a class="text-base mb-1 font-semibold">Alert by Auditor</a>
             <div class="w-full mt-1 flex gap-2" wire:ignore x-init="
             flatpickr('#rangeAuditor', {
                 mode:'range',
@@ -32,21 +32,21 @@
             });
         "
             ">
-            <input id="rangeAuditor" type="text" class="bg-gray-100  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeAuditor' placeholder="Please select">
+            <input id="rangeAuditor" type="text" class="bg-white  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeAuditor' placeholder="Please select">
 
         </div>
         </div>
         <div class="flex gap-2 mb-6 ">
             <div class="flex flex-col">
                 <a class="text-sm">Find who is <b>auditing</b> the alert</a>
-                <input wire:keydown.enter="find"  type="text" class="bg-gray-100  text-gray-00 mt-1  w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='alertCode' placeholder="type alert ID">
+                <input wire:keydown.enter="find"  type="text" class="bg-white  text-gray-00 mt-1  w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='alertCode' placeholder="type alert ID">
             </div>
 
         </div>
         <div class="flex gap-2 mb-6 ">
             <div class="flex flex-col">
                 <a class="text-sm">Find who is <b>validating</b> the alert</a>
-                <input wire:keydown.enter="findValidator"  type="text" class="bg-gray-100  text-gray-00 mt-1  w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='alertCodeValidator' placeholder="type alert ID">
+                <input wire:keydown.enter="findValidator"  type="text" class="bg-white  text-gray-00 mt-1  w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='alertCodeValidator' placeholder="type alert ID">
             </div>
 
         </div>

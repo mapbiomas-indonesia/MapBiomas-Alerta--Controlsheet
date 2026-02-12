@@ -1,6 +1,6 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-white mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4">
     <div class="text-sm mb-6">
-        <a>Alert by validator</a>
+        <a class="text-base mb-1 font-semibold">Alert status by validator</a>
         <div class="mt-2">
             <input class="sm:w-52 w-full py-1 border-gray-500 border px-2 focus:outline-none text-xs" wire:model.live='searchName' placeholder="validator name">
         </div>

@@ -11,6 +11,7 @@
             <livewire:filter-dashboard-component>
             <livewire:summary-alert-commponent />
             <livewire:auditor-summary-component>
+            <livewire:validator-task-component />
             <livewire:check-alert-analis />
         @endif
 
@@ -21,11 +22,6 @@
         @if (session('role_id') == 2)
             <livewire:filter-dashboard-component>
             <livewire:sumary-alert-analis />
-            {{-- <livewire:check-user-alert-audit /> --}}
-            {{-- <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-semibold text-gray-700">Alerts</h1>
-                <livewire:check-approved-component />
-            </div> --}}
             <livewire:table-analisis />
         @endif
     </div>
