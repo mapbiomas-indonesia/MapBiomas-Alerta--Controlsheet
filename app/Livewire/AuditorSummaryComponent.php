@@ -11,7 +11,7 @@ use Masmerise\Toaster\Toaster;
 
 class AuditorSummaryComponent extends Component
 {
-    public $startDate , $endDate , $rangeAuditor, $alertCode, $alertCodeValidator;
+    public $startDate , $endDate, $rangeAuditor, $alertCode, $alertCodeValidator;
 
 
     // Bind to UI
@@ -55,6 +55,7 @@ class AuditorSummaryComponent extends Component
         $this->endDate = Carbon::now('Asia/Jakarta')->format('Y-m-d');
         $this->rangeAuditor = $this->startDate.' to '.$this->endDate;
     }
+
 
 
     public function find(){
@@ -108,22 +109,24 @@ class AuditorSummaryComponent extends Component
     #[On('echo:analis-data,UpdateAnalis')]
     #[On('echo:auditor-data,UpdateAuditor')]
     public function filter(){
+
        [$dataField, $dataOrder] = $this->normalizedSort();
 
         $rows = DB::table('auditorlog')
-            ->join('users', 'users.id', '=', 'auditorlog.auditorId')
-            ->select(
-                'users.name as auditorName',
-                'users.id as auditorId',
-                DB::raw("DATE(auditorlog.created_at) as d"),
-                DB::raw("COUNT(DISTINCT auditorlog.alertId) as total")
-            )
-            ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDate, $this->endDate])
-            ->where('ngapain', '=', 'auditing')
-            ->where('users.is_active', 1)
-            ->groupBy('users.name', 'users.id', DB::raw("DATE(auditorlog.created_at)"))
-            ->orderBy($dataField, $dataOrder)
-            ->get();
+        ->join('users', 'users.id', '=', 'auditorlog.auditorId')
+        ->select(
+            'users.name as auditorName',
+            'users.id as auditorId',
+            DB::raw("DATE(auditorlog.created_at) as d"),
+            DB::raw("COUNT(DISTINCT auditorlog.alertId) as total")
+        )
+        ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDate, $this->endDate])
+        ->where('ngapain', 'auditing')
+        ->where('users.is_active', 1)
+        ->groupBy('users.name', 'users.id', DB::raw("DATE(auditorlog.created_at)"))
+        ->orderBy($dataField, $dataOrder)
+        ->get();
+
 
 
         $results = [];

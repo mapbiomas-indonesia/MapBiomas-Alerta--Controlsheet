@@ -9,21 +9,21 @@ use Livewire\Component;
 
 class ValidatorTaskComponent extends Component
 {
-    public $startDate, $endDate , $rangeAuditor;
+    public $startDateValidator, $endDateValidator , $rangeValidator;
     public $report = [
         'dates' => [],
         'data'  => []
     ];
 
-    public function updatedRangeAuditor()
+    public function updatedrangeValidator()
     {
         $this->generateReport();
     }
 
     public function mount(){
-        $this->startDate = Carbon::now('Asia/Jakarta')->format('Y-m-d');
-        $this->endDate = Carbon::now('Asia/Jakarta')->format('Y-m-d');
-        $this->rangeAuditor = $this->startDate.' to '.$this->endDate;
+        $this->startDateValidator = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+        $this->endDateValidator = Carbon::now('Asia/Jakarta')->format('Y-m-d');
+        $this->rangeValidator = $this->startDateValidator.' to '.$this->endDateValidator;
         $this->generateReport();
     }
 
@@ -52,7 +52,7 @@ class ValidatorTaskComponent extends Component
             DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'reexportImage' THEN auditorlog.alertId END) as total_reexportimage"),
             DB::raw("COUNT(DISTINCT CASE WHEN auditorlog.ngapain = 'refined' THEN auditorlog.alertId END) as total_refined")
         )
-        ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDate, $this->endDate])
+        ->whereBetween(DB::raw("DATE(auditorlog.created_at)"), [$this->startDateValidator, $this->endDateValidator])
         ->where('users.is_active', 1)
         ->whereIn('auditorlog.ngapain', [
             'Insert',
@@ -77,7 +77,7 @@ class ValidatorTaskComponent extends Component
             DB::raw("DATE(alerts.updated_at) as d"),
             DB::raw("COUNT(DISTINCT alerts.alertId) as approvedTotal")
         )
-        ->whereBetween(DB::raw("DATE(alerts.updated_at)"), [$this->startDate, $this->endDate])
+        ->whereBetween(DB::raw("DATE(alerts.updated_at)"), [$this->startDateValidator, $this->endDateValidator])
         ->where('alerts.auditorStatus', 'approved')
         ->groupBy('alerts.analisId', DB::raw("DATE(alerts.updated_at)"))
         ->get();

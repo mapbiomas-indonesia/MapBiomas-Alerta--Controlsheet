@@ -2,7 +2,7 @@
     <div class="text-sm mb-6">
         <a class="text-base mb-1 font-semibold">Alert by Validator</a>
         <div class="w-full mt-1 flex gap-2" wire:ignore x-init="
-        flatpickr('#rangeAuditor', {
+        flatpickr('#rangeValidator', {
             mode:'range',
             dateFormat: 'Y-m-d',
             {{-- locale: 'id', // ✅ Indonesian calendar labels, optional --}}
@@ -19,19 +19,19 @@
                         return `${y}-${m}-${day}`;
                     }
 
-                    let startDate = formatDate(selectedDates[0]);
-                    let endDate   = formatDate(selectedDates[1]);
+                    let startDateValidator = formatDate(selectedDates[0]);
+                    let endDateValidator   = formatDate(selectedDates[1]);
 
-                    console.log(['Start:', startDate, 'End:', endDate]);
+                    console.log(['Start:', startDateValidator, 'End:', endDateValidator]);
 
-                    $wire.set('startDate', startDate);
-                    $wire.set('endDate', endDate);
+                    $wire.set('startDateValidator', startDateValidator);
+                    $wire.set('endDateValidator', endDateValidator);
                 }
             }
         });
      "
         ">
-            <input id="rangeAuditor" type="text" class="bg-white  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeAuditor' placeholder="Please select">
+            <input id="rangeValidator" type="text" class="bg-white  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeValidator' placeholder="Please select">
 
         </div>
     </div>
