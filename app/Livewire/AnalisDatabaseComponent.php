@@ -97,6 +97,15 @@ class AnalisDatabaseComponent extends Component
 
     #[On('updateStatus')]
     public function updateStatus($id, $status) {
+        if($status == 'refined'){
+            DB::table('auditorlog')->insert([
+                'auditorId' => session('id'),
+                'alertId' => $id,
+                'ngapain' => 'refined',
+                'created_at' => Carbon::now('Asia/Jakarta')
+            ]);
+        }
+
         DB::table('alerts')
         ->where('alertId', $id)
         ->where('isActive', 1)
