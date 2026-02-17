@@ -75,7 +75,7 @@ class ValidatorTaskComponent extends Component
         ->select(
             'alerts.analisId as auditorId',
             DB::raw("DATE(alerts.updated_at) as d"),
-            DB::raw("COUNT(DISTINCT alerts.id) as approvedTotal")
+            DB::raw("COUNT(DISTINCT alerts.alertId) as approvedTotal")
         )
         ->whereBetween(DB::raw("DATE(alerts.updated_at)"), [$this->startDate, $this->endDate])
         ->where('alerts.auditorStatus', 'approved')
