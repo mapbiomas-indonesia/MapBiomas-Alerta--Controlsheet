@@ -22,4 +22,4 @@
 
 ## Screenshot
 
-![](https://i.imgur.com/tWjoJ8d.png)
+![](https://i.imgur.com/86fG7g0.png)
