@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../../vendor/masmerise/livewire-toaster/resources/views/*.blade.php';
@@ -8,12 +9,20 @@
 @source "../**/*.js";
 @source "../**/*.vue";
 
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 
 .selection-bg ::selection {
-    background-color: #79ffe1;
+  background-color: #79ffe1;
+  color: #0f172a;
 }
+
+.dark .selection-bg ::selection {
+  background-color: #f81ce5;
+  color: white;
+}
+
 
 
 .bg-green-alerta{
@@ -70,3 +79,5 @@
 .text-green-alerta{
     color: #86B897;
 }
+
+

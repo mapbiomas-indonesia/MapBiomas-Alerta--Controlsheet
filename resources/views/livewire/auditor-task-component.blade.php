@@ -1,4 +1,4 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-100 mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-100 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-400 mt-4">
     <div class="text-sm mb-6">
         <a class="text-base mb-1 font-semibold">Alert by Auditor</a>
         <div class="w-full mt-1 flex gap-2" wire:ignore x-init="
@@ -31,7 +31,7 @@
         });
      "
         ">
-            <input id="rangeAuditor" type="text" class="bg-gray-100  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeAuditor' placeholder="Please select">
+            <input id="rangeAuditor" type="text" class="bg-gray-100 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 text-gray-800   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeAuditor' placeholder="Please select">
 
         </div>
     </div>
@@ -40,10 +40,10 @@
         <div class="">
             <div class="w-full overflow-x-auto">
     <table class="w-full min-w-max border-collapse border-b border-gray-300">
-        <thead class="bg-gray-100 text-gray-700">
+        <thead class="bg-gray-100 dark:bg-slate-600 border-b border-gray-300 dark:border-slate-700 dark:text-slate-400 text-gray-700">
             <tr>
                 {{-- Sticky first column --}}
-                <th class="sticky left-0 bg-gray-100 border-b border-gray-300 px-4 py-2 text-xs text-left z-10">
+                <th class="sticky left-0 bg-gray-100 dark:bg-slate-600 border-b border-gray-300 dark:border-slate-700 dark:text-slate-400 px-4 py-2 text-xs text-left z-10">
                     Auditor
                 </th>
 
@@ -63,7 +63,7 @@
             @foreach ($results as $row)
                 <tr class="hover:bg-gray-50">
                     {{-- Sticky first column --}}
-                    <td class="sticky left-0 bg-white border-b border-gray-300 px-4 py-2 text-xs z-10 whitespace-nowrap">
+                    <td class="sticky left-0 bg-white dark:bg-slate-700 border-b border-gray-300 dark:border-slate-800 px-4 py-2 text-xs z-10 whitespace-nowrap">
                         <a href="{{ url('/auditor-alert/'.$row['auditorId']) }}">{{ $row['auditorName'] }}</a>
                     </td>
 
@@ -71,7 +71,7 @@
                     @foreach ($row as $key => $val)
                         @if ($key !== 'auditorName' and $key !== 'auditorId')
                             {{-- Display 0 if no data for that date --}}
-                            <td class="border-b border-gray-300 px-4 py-2 text-xs text-center">
+                            <td class="border-b dark:bg-slate-700 border-b border-gray-300 dark:border-slate-800 border-gray-300 px-4 py-2 text-xs text-center">
                                 {{ $val }}
                             </td>
                         @endif

@@ -8,16 +8,16 @@
             <!-- This element is to trick the browser into centering the modal contents. -->
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
 
-            <div class="px-4 py-6 inline-block align-bottom min-h-[450px] overflow-y-auto rounded-sm bg-white text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+            <div class="px-4 py-6 inline-block align-bottom min-h-[450px] overflow-y-auto rounded-sm bg-white dark:bg-slate-700 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                 <div>
                     <div class="flex">
                         <div class="sm:w-8/12 w-full">
-                            <h2 class="text-xl font-semibold">{{ $alertId }} - {{ $alertStatus }}</h2>
+                            <h2 class="text-xl font-semibold dark:text-slate-400">{{ $alertId }} - {{ $alertStatus }}</h2>
                         </div>
                     </div>
 
-                    <div class="flex flex-col mt-4 prose prose-sm break-words">
-                        <p class="text-sm text-left"><strong>Reason</strong>: {!! $alertReason !!}</p>
+                    <div class="flex flex-col mt-4 prose prose-sm break-words dark:text-slate-400">
+                        <p class="text-sm text-left dark:text-slate-400"><strong class="dark:text-slate-400">Reason</strong>: {!! $alertReason !!}</p>
                     </div>
                 </div>
 

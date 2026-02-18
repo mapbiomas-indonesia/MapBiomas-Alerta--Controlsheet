@@ -20,13 +20,13 @@
         x-transition:leave="transition ease-in duration-500"
         x-transition:leave-start="opacity-0"
         x-transition:leave-end="opacity-100"
-        class="z-20 absolute right-0 w-60 p-2 mt-2 space-y-2 text-gray-600 bg-gray-300 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300  dark:bg-black"
+        class="z-20 absolute right-0 w-60 p-2 mt-2 space-y-2 text-gray-600 bg-gray-300 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300  dark:bg-slate-800"
         aria-label="submenu"
       >
       <li class="px-4 py-2 text-sm">{{ session('name') }}</li>
         <li class="flex">
           <a
-            class="inline-flex items-center w-full px-2 py-1 text-sm  transition-colors duration-150 rounded-md hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+            class="inline-flex items-center w-full px-2 py-1 text-sm  transition-colors duration-150 rounded-md hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-200"
             href="{{url('/settings')}}"
           >
             <svg

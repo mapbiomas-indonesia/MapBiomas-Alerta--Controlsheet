@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Page Title'}}</title>
+    <script>
+    (function () {
+
+        const theme = localStorage.getItem('theme');
+
+        if (theme === 'dark') {
+
+            document.documentElement.classList.add('dark');
+
+        } else if (theme === 'light') {
+
+            document.documentElement.classList.remove('dark');
+
+        } else {
+
+            // default ikut system
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+
+        }
+
+    })();
+    </script>
     @vite(['resources/js/app.js', 'resources/css/app.css'])
 
     @livewireStyles
@@ -16,7 +40,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
-<body class="selection-bg font-sans">
+<body class="dark:selection-bg selection-bg font-sans dark:bg-gray-900 ">
     @yield('content')
 
     <x-toaster-hub />

@@ -1,14 +1,14 @@
-<div class="mt-2  py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50">
+<div class="mt-2  py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-400">
     <a class="text-base mb-1 font-semibold">Alert Need to Fix</a>
     <div x-data="{ open: @entangle('isReason') }">
         @include('partials.auditorReason')
     </div>
-    <input class="sm:w-52 w-full py-1 bg-white border-gray-500 border px-2 focus:outline-none mt-2 text-xs" wire:model.live='search' placeholder="alert ID">
+    <input class="sm:w-52 w-full py-1 bg-white border-gray-500 border px-2 focus:outline-none mt-2 text-xs dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300" wire:model.live='search' placeholder="alert ID">
     <div class="mt-4">
-        <table class="w-full divide-y divide-gray-200  rounded-sm  border border-gray-100">
+        <table class="w-full divide-y divide-gray-200  rounded-sm  border border-gray-100 dark:border-slate-700">
             <thead class=" text-xs">
                 <tr class="">
-                    <th wire:click='sortingField("alertId")'  class="bg-gray-50 px-6 py-4  cursor-pointer   text-left  text-gray-700 uppercase tracking-wider  sm:w-2/12 w-4/12">
+                    <th wire:click='sortingField("alertId")'  class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400 px-6 py-4  cursor-pointer   text-left  text-gray-700 uppercase tracking-wider  sm:w-2/12 w-4/12">
                         <div class=" space-x-1 flex" >
                             <a class="text-xs">Alert ID</a>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 my-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -16,7 +16,7 @@
                                 </svg>
                          </div>
                      </th>
-                    <th wire:click='sortingField("created_at")' class="bg-gray-50 px-6 py-4    text-left   text-gray-700 uppercase tracking-wider cursor-pointer sm:w-3/12 w-4/12 hidden sm:table-cell ">
+                    <th wire:click='sortingField("created_at")' class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400 px-6 py-4    text-left   text-gray-700 uppercase tracking-wider cursor-pointer sm:w-3/12 w-4/12 hidden sm:table-cell ">
                        <div class="flex space-x-1">
                            <a>Input date</a>
                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 my-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,18 +24,18 @@
                             </svg>
                         </div>
                     </th>
-                    <th  class="bg-gray-50 px-6 py-4    text-left   text-gray-700 uppercase tracking-wider  sm:w-2/12 w-4/12 hidden sm:table-cell">
+                    <th  class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400 px-6 py-4    text-left   text-gray-700 uppercase tracking-wider  sm:w-2/12 w-4/12 hidden sm:table-cell">
                         <div class="flex space-x-1">
                             <a>Region/Island</a>
                          </div>
                      </th>
-                     <th  class="bg-gray-50 px-6 py-4   text-left   text-gray-700 uppercase tracking-wider  sm:w-3/12 w-11/12 hidden sm:table-cell">
+                     <th  class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400 px-6 py-4   text-left   text-gray-700 uppercase tracking-wider  sm:w-3/12 w-11/12 hidden sm:table-cell">
                         <div class=" space-x-1 " >
                             <a >Province</a>
 
                          </div>
                      </th>
-                     <th wire:click='sortingField("auditorStatus")' class="bg-gray-50 px-6 py-4   text-left   text-gray-700 uppercase tracking-wider cursor-pointer sm:w-4/12 w-4/12">
+                     <th wire:click='sortingField("auditorStatus")' class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400 px-6 py-4   text-left   text-gray-700 uppercase tracking-wider cursor-pointer sm:w-4/12 w-4/12">
                         <div class="flex space-x-1">
                             <a>Auditor Status</a>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 my-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -49,18 +49,18 @@
 
 
 
-                    <th class=" text-right bg-gray-50   text-gray-700 uppercase tracking-wider w-1/12 hidden sm:table-cell">
+                    <th class=" text-right bg-gray-50 dark:bg-slate-700 dark:text-slate-400   text-gray-700 uppercase tracking-wider w-1/12 hidden sm:table-cell">
 
                     </th>
                 </tr>
             </thead>
-            <tbody class="bg-white  divide-y divide-gray-200 ">
+            <tbody class="bg-white dark:bg-slate-800 divide-y divide-gray-200 dark:divide-slate-700 dark:border-slate-700">
                 @forelse ($databases as $item)
                 <tr>
-                    <td class="px-6 py-4 break-words text-xs  text-gray-700 ">
+                    <td class="px-6 py-4 break-words text-xs  text-gray-700 dark:text-slate-400 ">
                         <a>{{$item->alertId}}</a>
                     </td>
-                    <td class="px-6 py-4 break-words text-xs  text-gray-700 hidden sm:table-cell">
+                    <td class="px-6 py-4 break-words text-xs  text-gray-700 dark:text-slate-400 hidden sm:table-cell">
                         @php
                             $date = \Carbon\Carbon::parse($item->created_at)->locale(App::getLocale());
                             $date->settings(['formatFunction' => 'translatedFormat']);
@@ -68,13 +68,13 @@
                         <a>{{ $date->format('d-m-Y')  }}</a>
                     </td>
 
-                    <td class="px-6 py-4 break-words text-xs  text-gray-700 hidden sm:table-cell">
+                    <td class="px-6 py-4 break-words text-xs  text-gray-700 dark:text-slate-400 hidden sm:table-cell">
                         <a >{{$item->region}}</a>
                     </td>
-                    <td class="px-6 py-4 break-words text-xs  text-gray-700 hidden sm:table-cell">
+                    <td class="px-6 py-4 break-words text-xs  text-gray-700 dark:text-slate-400 hidden sm:table-cell">
                         <a >{{$item->province}}</a>
                     </td>
-                    <td class="px-6 py-4 break-words text-xs  text-gray-700">
+                    <td class="px-6 py-4 break-words text-xs  text-gray-700 dark:text-slate-400">
                         @if (!$item->auditorStatus)
                             <a class="rounded-xs  bg-gray-300 px-2 py-1">Pending</a>
                         @elseif ($item->auditorStatus == 'approved')

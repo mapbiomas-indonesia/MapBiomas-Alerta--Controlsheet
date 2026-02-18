@@ -1,12 +1,12 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4 dark:bg-slate-800 dark:border-slate-800">
     <div class="text-sm mb-6">
-        <a class="text-base mb-1 font-semibold">Alert status by region</a>
+        <a class="text-base mb-1 font-semibold dark:text-slate-400">Alert status by region</a>
     </div>
 
     <div class="overflow-y-auto w-full">
-        <table class="w-full border-collapse border-b border-gray-300">
+        <table class="w-full border-collapse border-b border-gray-300 dark:border-slate-800">
           <thead class="text-xs font-semibold">
-            <tr class="bg-gray-50 text-left">
+            <tr class="bg-gray-50 dark:bg-slate-700 dark:text-slate-400  text-left">
               <th class="border-b border-gray-300 px-4 py-2">Status</th>
               <th class="border-b border-gray-300 px-4 py-2">Bali & Nusa Tenggara</th>
               <th class="border-b border-gray-300 px-4 py-2">Java</th>
@@ -20,74 +20,74 @@
           </thead>
           <tbody class="text-xs">
             @foreach ($alerts as $item )
-                <tr class="border-t hover:bg-gray-50">
+                <tr class="border-t  hover:bg-gray-50 dark:hover:bg-slate-700 dark:hover:text-white dark:text-slate-500">
                     <td class="
-                    @if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['auditorStatus']}}
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['auditorStatus']}}
                     </td>
 
 
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Balinusatenggara']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700  px-4 py-2">{{$item['Balinusatenggara']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Java']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Java']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Kalimantan']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Kalimantan']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Maluku']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Maluku']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Papua']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Papua']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Sulawesi']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Sulawesi']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['Sumatra']}}</td>
-                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['Sumatra']}}</td>
+                    <td class="@if($item['auditorStatus'] === 'Grand Total') bg-gray-100 dark:bg-slate-700 dark:text-slate-400
                     @elseif($item['auditorStatus'] === 'approved') bg-green-alerta-table
                     @elseif($item['auditorStatus'] === 'rejected' or $item['auditorStatus'] === 'duplicate') bg-merah-alerta-table
                     @elseif($item['auditorStatus'] === 'pre-approved') bg-gray-alerta-table
                     @elseif($item['auditorStatus'] === 'refined') bg-refined-alerta-table
                     @elseif($item['auditorStatus'] === 'reexportimage' or $item['auditorStatus'] === 'reclassification') bg-yellow-alerta-table
-                    @endif border-b border-gray-300 px-4 py-2">{{$item['TOTAL']}}</td>
+                    @endif border-b border-gray-300 dark:border-slate-700 px-4 py-2">{{$item['TOTAL']}}</td>
                 </tr>
             @endforeach
 

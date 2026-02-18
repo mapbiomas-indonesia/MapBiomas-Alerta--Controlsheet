@@ -1,6 +1,6 @@
-<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 mt-4">
+<div class="py-6 px-4 border border-gray-100 z-20 relative  bg-gray-50 dark:bg-slate-800 dark:border-slate-800 mt-4">
     <div class="text-sm mb-6">
-        <a class="text-base mb-1 font-semibold">Alert by Validator</a>
+        <a class="text-base mb-1 font-semibold dark:text-slate-400">Alert by Validator</a>
         <div class="w-full mt-1 flex gap-2" wire:ignore x-init="
         flatpickr('#rangeValidator', {
             mode:'range',
@@ -31,7 +31,7 @@
         });
      "
         ">
-            <input id="rangeValidator" type="text" class="bg-white  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeValidator' placeholder="Please select">
+            <input id="rangeValidator" type="text" class="bg-white dark:bg-slate-700 dark:border-slate-700 dark:text-slate-400  text-gray-00   w-52 border border-gray-200  py-2 px-4 focus:outline-none  text-xs"  wire:model.defer='rangeValidator' placeholder="Please select">
 
         </div>
     </div>
@@ -39,33 +39,33 @@
     <div>
 
 
-    <div class="bg-white shadow overflow-hidden">
+    <div class="bg-white dark:bg-slate-600 shadow overflow-hidden">
         <div class="w-full overflow-x-auto">
 
-            <table class="w-full min-w-max border-collapse border-b border-gray-300 text-xs">
+            <table class="w-full min-w-max border-collapse border-b border-gray-300 dark:border-slate-800 text-xs">
 
-                <thead class="bg-gray-100 text-gray-700">
+                <thead class="bg-gray-100 dark:bg-slate-600 dark:text-slate-400">
 
                     <!-- HEADER ROW 1 -->
                     <tr>
 
                         <!-- Validator -->
                         <th rowspan="2 "
-                            class="sticky left-0 bg-gray-100 border-b border-gray-300 px-4 py-2 text-left z-20">
+                            class="sticky left-0 bg-gray-100 dark:bg-slate-700 dark:text-slate-400 border-b dark:border-slate-700 border-gray-300 px-4 py-2 text-left z-20">
                             Validator
                         </th>
 
                         <!-- Loop tanggal -->
                         @foreach($report['dates'] as $date)
                             <th colspan="2"
-                                class=" px-4 py-2 text-center whitespace-nowrap bg-gray-200 border-r border-gray-300 border-l">
+                                class=" px-4 py-2 text-center whitespace-nowrap bg-gray-200 dark:bg-slate-600 dark:text-slate-400 dark:border-slate-500 border-r border-gray-300 border-l border-b border-t">
                                 {{ $date }}
                             </th>
                         @endforeach
 
                         <!-- Total -->
                         <th colspan="2"
-                            class="sticky right-0 bg-gray-300 border-b border-gray-300 px-4 py-2 text-center z-20">
+                            class="sticky right-0 bg-gray-300 border-b border-gray-300 dark:bg-slate-700 dark:text-slate-400 dark:border-slate-600 px-4 py-2 text-center z-20">
                             Total
                         </th>
 
@@ -75,20 +75,20 @@
                     <tr>
 
                         @foreach($report['dates'] as $date)
-                            <th class="w-24 border-b bg-gray-alerta-table-full border-gray-300 px-4 py-2 text-center border-l">
+                            <th class="w-24 bg-gray-200 dark:bg-slate-500 dark:text-slate-300 dark:border-slate-500 border-gray-300 px-4 py-2 text-center border-l">
                                 task
                             </th>
 
-                            <th class="w-24 border-b bg-green-alerta-table-full border-gray-300 px-4 py-2 text-center border-r">
+                            <th class="w-24  border-gray-300 px-4 py-2 text-center bg-[#bfcec3] dark:bg-[#617c6a] dark:text-slate-300 dark:border-slate-500 border-r">
                                 approved
                             </th>
                         @endforeach
 
-                        <th colspan="1" class="w-28  sticky right-[112px] bg-gray-300 border-b border-gray-300 px-4 py-2 text-center z-20">
+                        <th colspan="1" class="w-28  sticky right-[112px] bg-gray-300 border-b border-gray-300 px-4 py-2 text-center z-20 dark:bg-slate-600 dark:text-slate-300 dark:border-slate-600">
                             task
                         </th>
 
-                        <th colspan="1" class="w-28  sticky right-0 bg-[#a1ddb5] border-b border-gray-300 px-4 py-2 text-center z-20">
+                        <th colspan="1" class="w-28  sticky right-0 bg-[#a3c9af] border-b border-[#a3c9af] px-4 py-2 text-center z-20  dark:bg-[#3a5142]  dark:text-slate-300 dark:border-[#3a5142] border-r">
                             approved
                         </th>
 
@@ -104,10 +104,10 @@
                         <tbody x-data="{ open:false }">
 
                             <tr @click="open = !open"
-                                class="hover:bg-gray-50 cursor-pointer">
+                                class=" cursor-pointer">
 
                                 <!-- Validator name (sticky left, collapse tetap) -->
-                                <td class="sticky left-0 bg-white border-b border-gray-300 px-4 py-2 z-10 whitespace-nowrap font-medium">
+                                <td class="sticky left-0 bg-white border-b border-gray-300 px-4 py-2 z-10 whitespace-nowrap font-medium dark:bg-slate-700 dark:text-slate-400 dark:border-slate-700">
 
                                     <div class="flex items-center gap-2">
 
@@ -128,7 +128,7 @@
                                     </div>
 
                                     <!-- collapse content tetap -->
-                                    <div x-show="open" class="mt-2 w-full bg-gray-100 px-2 py-2">
+                                    <div x-show="open" style="display: none;" class="mt-2 w-full bg-gray-100 dark:bg-slate-400 dark:text-slate-700   px-2 py-2">
 
                                         Insert: {{ $row['category']['Insert'] ?? 0 }} <br>
                                         Reject: {{ $row['category']['Reject'] ?? 0 }} <br>
@@ -145,12 +145,12 @@
                                 <!-- Loop tanggal -->
                                 @foreach($report['dates'] as $date)
 
-                                    <td class="border-b border-gray-300 px-4 py-2 text-center bg-gray-alerta-table-full border-l">
+                                    <td class="border-b border-gray-300 px-4 py-2 text-center bg-gray-200 dark:bg-slate-500 dark:text-slate-300 dark:border-slate-500 border-l">
                                         {{ $row['dates'][$date]['task'] ?? 0 }}
 
                                     </td>
 
-                                    <td class="border-b border-gray-300 px-4 py-2 text-center bg-green-alerta-table-full border-r ">
+                                    <td class="border-b border-gray-300 px-4 py-2 text-center bg-[#bfcec3] dark:bg-[#617c6a] dark:text-slate-300 dark:border-slate-500 border-r ">
                                         {{ $row['dates'][$date]['approved'] ?? 0 }}
                                     </td>
 
@@ -158,12 +158,12 @@
 
 
                                 <!-- total task -->
-                                <td class="w-28 sticky right-[112px] bg-gray-300 border-b border-gray-300 px-4 py-2 text-center font-semibold z-10 ">
+                                <td class="w-28 sticky right-[112px] bg-gray-300 border-b border-gray-300 px-4 py-2 text-center font-semibold z-10 dark:bg-slate-600 dark:text-slate-300 dark:border-slate-600">
                                     {{ $row['grandTotal'] ?? 0 }}
                                 </td>
 
                                 <!-- total approved -->
-                                <td class="w-28 sticky right-0  border-b border-gray-300 px-4 py-2 text-center font-semibold z-10 bg-[#a1ddb5]">
+                                <td class="w-28 sticky right-0  border-b border-[#a1ddb5] px-4 py-2 text-center font-semibold z-10 bg-[#a3c9af]   dark:bg-[#3a5142]  dark:text-slate-300 dark:border-[#3a5142] border-r">
                                     {{ $row['grandApproved'] ?? 0 }}
                                 </td>
 
