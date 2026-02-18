@@ -1,4 +1,4 @@
-<header class="max-w-6xl px-6 mx-auto pt-4 flex items-center justify-between py-6 sticky top-0 bg-white dark:bg-slate-900 z-50">
+<header class="max-w-6xl px-6 mx-auto pt-4 flex items-center justify-between py-6  bg-white dark:bg-slate-900 ">
     <div class="flex items-center ">
        <div class="px-2">
             <img src="{{ asset('assets/logo-alerta.png') }}" alt="" class="w-40">
