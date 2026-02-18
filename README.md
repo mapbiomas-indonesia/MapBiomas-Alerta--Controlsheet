@@ -22,4 +22,6 @@
 
 ## Screenshot
 
-![](https://i.imgur.com/86fG7g0.png)
+|                   Light Mode                   |                   Dark Mode                   |
+| :--------------------------------------------: | :-------------------------------------------: |
+| ![Light Mode](https://i.imgur.com/86fG7g0.png) | ![Dark Mode](https://i.imgur.com/xKYXofG.png) |
