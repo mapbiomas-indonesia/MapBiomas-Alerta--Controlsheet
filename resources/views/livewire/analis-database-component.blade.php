@@ -121,10 +121,10 @@
 
                             @elseif(in_array($item->auditorStatus, ['reexportimage', 'reclassification']))
                             <div onclick="window.dispatchEvent(
-                                    new CustomEvent('open-reason-modal', {
-                                        detail: { id: {{ $item->id }} }
-                                    })
-                                )"
+                                new CustomEvent('open-reason-modal', {
+                                    detail: { id: {{ $item->alertId}} }
+                                })
+                            )"
                                 class="w-36 flex items-center justify-center px-2 py-1 text-xs rounded focus:outline-none bg-yellow-alerta text-white cursor-pointer">
                                 {{ $item->auditorStatus == 'reexportimage'
                                     ? 'Re-export images'
