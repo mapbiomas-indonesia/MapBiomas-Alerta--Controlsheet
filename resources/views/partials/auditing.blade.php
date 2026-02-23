@@ -16,8 +16,8 @@
             <!-- This element is to trick the browser into centering the modal contents. -->
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
 
-            <div class=" px-4 py-6 inline-block align-bottom h-[650px] rounded-sm bg-white dark:bg-slate-700 text-left  shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl w-full " role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                <div wire:loading class="flex w-full justify-center text-center bg-red-300 py-1 animate-pulse text-xs px-4 text-white mb-12" >loading. . .</div>
+            <div class=" px-4 py-6 inline-block align-bottom h-[660px] rounded-sm bg-white dark:bg-slate-700 text-left  shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl w-full " role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+                <div wire:loading class="absolute flex w-[97%] justify-start text-center bg-red-300 py-1 animate-pulse text-xs  text-white mb-12" >loading. . .</div>
 
                 <div class="w-full">
                     <a class="text-xl dark:text-slate-400">{{$alertId}} - {{$observation}} - {{$analis}}</a>

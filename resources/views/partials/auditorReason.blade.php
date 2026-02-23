@@ -20,7 +20,7 @@
 
             <!-- MODAL CONTENT -->
             <div
-                class="px-4 py-6 inline-block align-bottom min-h-[450px] overflow-y-auto rounded-sm bg-white dark:bg-slate-700 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full"
+                class="px-4 py-6 inline-block align-bottom min-h-[550px] overflow-y-auto rounded-sm bg-white dark:bg-slate-700 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg w-full"
                 role="dialog"
             >
                 <div wire:loading class="flex w-full justify-center text-center bg-red-300 py-1 animate-pulse text-xs px-4 text-white mb-12" >loading. . .</div>
