@@ -70,10 +70,19 @@ class AlertController extends Controller
     public function audit($id){
 
         $data = DB::table('alerts')
-        ->join('users', 'analisId', '=', 'users.id')
-        ->select('alerts.*', 'users.*')
+        ->join('users', 'alerts.analisId', '=', 'users.id')
+        ->select([
+            'alerts.alertId',
+            'alerts.auditorStatus',
+            'alerts.alertStatus',
+            'alerts.auditorReason',
+            'alerts.observation',
+            'alerts.alertNote',
+            'users.name as name',
+        ])
         ->where('alerts.isActive', 1)
-        ->where('alerts.id', $id)->first();
+        ->where('alerts.id', $id)
+        ->first();
         // dd($data);
 
         return $data;
