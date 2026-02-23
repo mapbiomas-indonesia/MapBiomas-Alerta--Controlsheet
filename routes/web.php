@@ -18,6 +18,8 @@ Route::middleware([checkSession::class])->group(function () {
     Route::get('/settings', [SettingsController::class, 'index']);
     Route::get('/alerts', [AlertController::class, 'index']);
     Route::get('/editalert/{id}', [AlertController::class, 'editalert']);
+    route::get('/rest/fix/{id}', [AlertController::class, 'fix']);
+    route::get('/rest/audit/{id}', [AlertController::class, 'audit']);
 
     Route::middleware([checkLevel::class])->group(function(){
         Route::get('/users', [UsersController::class, 'index']);

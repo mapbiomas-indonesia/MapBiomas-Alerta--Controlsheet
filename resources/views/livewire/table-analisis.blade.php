@@ -82,7 +82,11 @@
                         @elseif ($item->auditorStatus == 'duplicate' or $item->auditorStatus == 'rejected')
                             <a  class="rounded-xs  bg-merah-alerta px-2 py-1 text-gray-100">{{$item->auditorStatus}}</a>
                         @else
-                            <a wire:click="showReason({{ $item->id }})" @click.away="open = false" class="rounded-xs cursor-pointer  bg-yellow-alerta px-2 py-1 text-gray-100">{{$item->auditorStatus}}</a>
+                            <a  onclick="window.dispatchEvent(
+                                new CustomEvent('open-reason-modal', {
+                                    detail: { id: {{ $item->alertId}} }
+                                })
+                            )" @click.away="open = false" class="rounded-xs cursor-pointer  bg-yellow-alerta px-2 py-1 text-gray-100">{{$item->auditorStatus}}</a>
                         @endif
                     </td>
 

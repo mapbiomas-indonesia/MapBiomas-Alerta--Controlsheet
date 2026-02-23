@@ -131,7 +131,10 @@
                     </td>
                     <td class="px-6 py-1 break-words text-xs  text-gray-700 dark:text-slate-400" wire:key="alert-{{ $item->alertId }}">
                         @if (in_array($item->auditorStatus, ['pre-approved', 'refined', 'error']))
-                            <a  wire:click="showAudit({{ $item->alertId }})" @click.away="open = false" class="inline-block text-center w-28 appearance-none rounded-xs
+                            <a onclick="window.dispatchEvent(
+                                new CustomEvent('open-audit-modal',
+                                { detail: { id: {{ $item->id }} } })
+                                )" @click.away="open = false" class="inline-block text-center w-28 appearance-none rounded-xs
                                 @if($item->auditorStatus == 'pre-approved') bg-blue-100 text-gray-700 dark:text-slate-400 cursor-pointer
                                 @elseif($item->auditorStatus == 'refined') bg-[rgb(135,190,211)]  text-white cursor-pointer
                                 @elseif($item->auditorStatus == 'error') bg-merah-alerta  text-white cursor-pointer

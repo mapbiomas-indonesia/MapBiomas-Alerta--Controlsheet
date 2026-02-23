@@ -54,4 +54,29 @@ class AlertController extends Controller
         $nav = 'alerts';
         return view('alertanalis', compact('id', 'title', 'nav'));
     }
+
+    public function fix($id){
+        return DB::table('alerts')
+        ->where('alertId', $id)
+        ->where('isActive', 1)
+        ->select(
+            'alertId',
+            'auditorStatus',
+            'auditorReason'
+        )
+        ->first();
+    }
+
+    public function audit($id){
+
+        $data = DB::table('alerts')
+        ->join('users', 'analisId', '=', 'users.id')
+        ->select('alerts.*', 'users.*')
+        ->where('alerts.isActive', 1)
+        ->where('alerts.id', $id)->first();
+        // dd($data);
+
+        return $data;
+
+    }
 }

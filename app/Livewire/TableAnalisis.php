@@ -43,6 +43,7 @@ class TableAnalisis extends Component
 
 
     public function fixAlert($id){
+        // dd($this->alertStatus);
         if ($this->alertStatus === 'reexportimage') {
             $newStatus = 'pre-approved';
             DB::table('auditorlog')->insert([

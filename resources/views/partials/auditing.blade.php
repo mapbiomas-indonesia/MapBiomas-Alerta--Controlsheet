@@ -1,6 +1,14 @@
-<div>
-    @if ($isAudit)
-    <div class="fixed z-50 inset-0  ease-out duration-400"  x-show="open" x-transition x-cloak style="display: none !important">
+<div x-data="auditModal()" x-init="init()">
+
+    <!-- MODAL -->
+    <div
+        class="fixed z-50 inset-0 overflow-y-auto ease-out duration-300"
+        x-show="open"
+        x-transition
+        x-cloak
+
+    >
+
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
             <div class="fixed inset-0 transition-opacity">
                 <div class="absolute inset-0 bg-gray-100 dark:bg-gray-900 opacity-50"></div>
@@ -16,7 +24,21 @@
                     {{-- left side --}}
                     <div class="sm:w-6/12 w-full h-[600px] overflow-y-auto">
                         <div class="flex flex-col  mb-3 mt-4  ">
-                             <a class="text-sm text-left prose dark:text-slate-400"><b>Note</b>: {!! $alertNote !!} </a>
+                             <a class="text-sm text-left prose dark:text-slate-400"><b>Note</b>:
+                                <template x-if="loading">
+                                    <div class="space-y-4 animate-pulse mt-4">
+                                        <div class="h-4 bg-gray-300 dark:bg-slate-600 rounded w-1/3"></div>
+                                        <div class="h-4 bg-gray-300 dark:bg-slate-600 rounded w-full"></div>
+                                        <div class="h-4 bg-gray-300 dark:bg-slate-600 rounded w-5/6"></div>
+                                    </div>
+                                </template>
+
+                                <template x-if="!loading">
+                                    <div>
+                                        {!! $alertNote !!}
+                                    </div>
+                                </template>
+                            </a>
                         </div>
                     </div>
                     {{-- right side --}}
@@ -139,14 +161,14 @@
 
                 <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-6 mb-6 bottom-0 right-0 sticky">
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button wire:loading.remove wire:click="auditing({{ $alertId }})" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-black text-base leading-6 font-medium text-gray-200 dark shadow-sm  focus:outline-none  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                        <button  @click="auditAlert()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-black text-base leading-6 font-medium text-gray-200 dark shadow-sm  focus:outline-none  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Audit Alert
                         </button>
 
                     </span>
                     <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
 
-                        <button wire:loading.remove wire:click='closeReason' type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                        <button @click="close()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                             Close
                         </button>
 
@@ -155,14 +177,85 @@
             </div>
         </div>
     </div>
-    @endif
-<script>
-    // Prevent bootstrap dialog from blocking focusin
-        $(document).on('focusin', function(e) {
-            if ($(e.target).closest(".alertReason").length) {
-                e.stopImmediatePropagation();
-            }
-        });
+
+    <script>
+
+function auditModal()
+{
+    return {
+
+        open: false,
+        loading: false,
+
+
+        alertId: '',
+
+        init()
+        {
+            window.addEventListener('open-audit-modal', (e) => {
+
+                const id = e.detail.id;
+
+                this.open = true;
+
+
+
+                this.loading = true;
+
+                fetch(`/rest/audit/${id}`)
+                    .then(res => res.json())
+                    .then(data => {
+
+                        this.fill(data);
+
+                    })
+                    .catch(() => {
+
+                        this.alertReason = 'Failed to load';
+
+                    })
+                    .finally(() => {
+
+                        this.loading = false;
+
+                    });
+
+            });
+        },
+
+        fill(data)
+        {
+
+            this.alertId = data.alertId;
+            this.$wire.set('alertId', data.alertId);
+            this.$wire.set('alertStatus', data.auditorStatus);
+            this.$wire.set('statusAlert', data.alertStatus);
+            this.$wire.set('alertReason', data.auditorReason ?? null);
+            this.$wire.set('observation', data.observation);
+            this.$wire.set('analis', data.name);
+            this.$wire.set('alertNote', data.alertNote ?? null);
+        },
+
+        close(){
+
+
+            this.open = false;
+        },
+
+        auditAlert(data)
+        {
+
+            console.log('Auditing alert with ID:', this.alertId);
+            // gunakan alertId dari state Alpine
+            const id = this.alertId;
+
+            if (!id) return;
+            this.$wire.auditing(id);
+            // this.close();
+        }
+
+    }
+}
 
 </script>
 </div>

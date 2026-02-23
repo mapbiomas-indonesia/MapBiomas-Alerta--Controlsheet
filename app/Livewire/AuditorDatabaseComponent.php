@@ -108,6 +108,7 @@ class AuditorDatabaseComponent extends Component
 
     public function checkAlertStatus(){
 
+        // dd($this->alertStatus);
         $status = $this->alertStatus;
         if($status == 'rejected'){
             $status = 'rejected';
@@ -122,6 +123,7 @@ class AuditorDatabaseComponent extends Component
 
     public function auditing($alertId)
     {
+        // dd($this->alertStatus);
         event(new UpdateAnalis);
         if ($this->manualValidation()) {
             DB::table('alerts')
