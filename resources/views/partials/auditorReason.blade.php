@@ -134,6 +134,12 @@ function reasonModal()
             });
         },
 
+        clear(){
+            this.alertId = '';
+            this.alertStatus = '';
+            this.alertReason = '';
+        },
+
         fill(data)
         {
             this.alertId = data.alertId;
@@ -159,6 +165,8 @@ function reasonModal()
 
             if (!id) return;
             this.$wire.fixAlert(id);
+            this.clear();
+
             this.close();
         }
 

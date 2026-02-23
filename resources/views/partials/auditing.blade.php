@@ -223,6 +223,17 @@ function auditModal()
             });
         },
 
+        clear(){
+            this.alertId = data.alertId;
+            this.$wire.set('alertId', null);
+            this.$wire.set('alertStatus', null);
+            this.$wire.set('statusAlert', null);
+            this.$wire.set('alertReason', null);
+            this.$wire.set('observation', null);
+            this.$wire.set('analis', null);
+            this.$wire.set('alertNote', null);
+        },
+
         fill(data)
         {
 
@@ -245,13 +256,15 @@ function auditModal()
         auditAlert(data)
         {
 
-            console.log('Auditing alert with ID:', this.alertId);
+
             // gunakan alertId dari state Alpine
             const id = this.alertId;
 
             if (!id) return;
             this.$wire.auditing(id);
-            // this.close();
+            this.clear();
+
+            this.close();
         }
 
     }
