@@ -84,7 +84,7 @@
                         @else
                             <a  onclick="window.dispatchEvent(
                                 new CustomEvent('open-reason-modal', {
-                                    detail: { id: {{ $item->id}} }
+                                    detail: { id: {{ $item->alertId}} }
                                 })
                             )" @click.away="open = false" class="rounded-xs cursor-pointer  bg-yellow-alerta px-2 py-1 text-gray-100">{{$item->auditorStatus}}</a>
                         @endif
