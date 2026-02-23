@@ -135,9 +135,11 @@ function reasonModal()
         },
 
         clear(){
-            this.alertId = '';
-            this.alertStatus = '';
-            this.alertReason = '';
+            this.alertId = null;
+            this.alertReason = null;
+            // sync ke Livewire
+            this.$wire.set('alertId', null);
+            this.$wire.set('alertReason', null);
         },
 
         fill(data)
@@ -153,7 +155,7 @@ function reasonModal()
 
         close()
         {
-
+            this.clear();
             this.open = false;
         },
 
@@ -165,7 +167,7 @@ function reasonModal()
 
             if (!id) return;
             this.$wire.fixAlert(id);
-            this.clear();
+
 
             this.close();
         }

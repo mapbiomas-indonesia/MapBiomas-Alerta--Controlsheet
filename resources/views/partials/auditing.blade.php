@@ -223,15 +223,10 @@ function auditModal()
             });
         },
 
-        clear(){
-            this.alertId = data.alertId;
+        clear(data){
             this.$wire.set('alertId', null);
-            this.$wire.set('alertStatus', null);
-            this.$wire.set('statusAlert', null);
-            this.$wire.set('alertReason', null);
             this.$wire.set('observation', null);
             this.$wire.set('analis', null);
-            this.$wire.set('alertNote', null);
         },
 
         fill(data)
@@ -249,7 +244,7 @@ function auditModal()
 
         close(){
 
-
+            this.clear();
             this.open = false;
         },
 
@@ -262,7 +257,6 @@ function auditModal()
 
             if (!id) return;
             this.$wire.auditing(id);
-            this.clear();
 
             this.close();
         }
