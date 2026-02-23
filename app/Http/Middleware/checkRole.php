@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class checkLevel
+class checkRole
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,9 @@ class checkLevel
      */
     public function handle(Request $request, Closure $next): Response
     {
-
+        if (!in_array(session('role_id'), [0, 1])) {
+            return redirect('/dashboard');
+        }
         return $next($request);
     }
 }

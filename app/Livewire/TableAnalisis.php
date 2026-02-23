@@ -23,6 +23,8 @@ class TableAnalisis extends Component
         $this->dataOrder = $this->dataOrder == 'asc' ? 'desc' : 'asc';
     }
 
+
+
     public function closeReason(){
         $this->isReason = false;
         $this->alertId = null;

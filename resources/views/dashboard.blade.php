@@ -16,7 +16,11 @@
         @endif
 
         @if (session('role_id') == 1)
+
             <livewire:auditor-task-component />
+            <livewire:filter-dashboard-component>
+            <livewire:check-alert-analis />
+
         @endif
 
         @if (session('role_id') == 2)

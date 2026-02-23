@@ -6,6 +6,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\checkLevel;
+use App\Http\Middleware\checkRole;
 use App\Http\Middleware\checkSession;
 use App\Http\Middleware\hasSession;
 use Illuminate\Support\Facades\Route;
@@ -22,9 +23,13 @@ Route::middleware([checkSession::class])->group(function () {
         Route::get('/users', [UsersController::class, 'index']);
         Route::get('/adduser', [UsersController::class, 'adduser']);
         Route::get('/edituser/{id}', [UsersController::class, 'edituser']);
-        Route::get('/alertanalis/{id}', [AlertController::class, 'alertanalis']);
         Route::get('/auditor-alert/{id}', [AlertController::class, 'auditorAlert']);
     });
+
+    Route::middleware([checkRole::class])->group(function(){
+        Route::get('/alertanalis/{id}', [AlertController::class, 'alertanalis']);
+    });
+
     Route::group(['prefix' => 'cms/controlsheet-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();
     });
