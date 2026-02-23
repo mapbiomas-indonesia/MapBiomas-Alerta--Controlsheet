@@ -22,7 +22,7 @@
                 <div class="w-full">
                     <a class="text-xl dark:text-slate-400">{{$alertId}} - {{$observation}} - {{$analis}}</a>
                 </div>
-                <div class=" flex sm:flex-row flex-col gap-6">
+                <div class=" flex sm:flex-row flex-col h-[660px] gap-6 ">
                     {{-- left side --}}
                     <div class="sm:w-6/12 w-full h-[600px] overflow-y-auto">
                         <div class="flex flex-col  mb-3 mt-4  ">
@@ -153,6 +153,21 @@
                             ></textarea>
                         </div>
                         </div>
+                        <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-6 mb-6 ">
+                            <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
+                                <button  @click="auditAlert()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-black text-base leading-6 font-medium text-gray-200 dark shadow-sm  focus:outline-none  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    Audit Alert
+                                </button>
+
+                            </span>
+                            <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
+
+                                <button @click="close()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                                    Close
+                                </button>
+
+                            </span>
+                        </div>
                     </div>
 
 
@@ -161,21 +176,7 @@
 
 
 
-                <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-6 mb-6 bottom-0 right-0 sticky">
-                    <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button  @click="auditAlert()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-black text-base leading-6 font-medium text-gray-200 dark shadow-sm  focus:outline-none  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                            Audit Alert
-                        </button>
 
-                    </span>
-                    <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">
-
-                        <button @click="close()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                            Close
-                        </button>
-
-                    </span>
-                </div>
             </div>
         </div>
     </div>
