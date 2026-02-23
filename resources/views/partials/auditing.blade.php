@@ -22,9 +22,9 @@
                 <div class="w-full">
                     <a class="text-xl dark:text-slate-400">{{$alertId}} - {{$observation}} - {{$analis}}</a>
                 </div>
-                <div class=" flex sm:flex-row flex-col h-[660px] gap-6 ">
+                <div class=" flex sm:flex-row flex-col gap-6 ">
                     {{-- left side --}}
-                    <div class="sm:w-6/12 w-full h-[600px] overflow-y-auto">
+                    <div class="sm:w-6/12 w-full h-[580px] overflow-y-auto">
                         <div class="flex flex-col  mb-3 mt-4  ">
                              <a class="text-sm text-left prose dark:text-slate-400"><b>Note</b>:
                                 <template x-if="loading">
