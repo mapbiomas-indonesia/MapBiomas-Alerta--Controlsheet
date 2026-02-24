@@ -155,8 +155,18 @@
                         </div>
                         <div class=" px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse mt-6 mb-6 ">
                             <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                                <button  @click="auditAlert()" type="button" class=" cursor-pointer inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-black text-base leading-6 font-medium text-gray-200 dark shadow-sm  focus:outline-none  transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-                                    Audit Alert
+                                <button @click="auditAlert()" :disabled="loading"  wire:loading.attr="disabled" class="cursor-pointer inline-flex items-center justify-center gap-2 w-full rounded-md border border-transparent px-4 py-2 bg-black text-base font-medium text-gray-200 shadow-sm focus:outline-none transition sm:text-sm disabled:opacity-50 disabled:cursor-not-allowed" >
+
+                                    <!-- Text normal -->
+                                    <span wire:loading.remove wire:target="auditing">
+                                        Audit Alert
+                                    </span>
+
+                                    <!-- Text loading -->
+                                    <span wire:loading wire:target="auditing">
+                                        Saving...
+                                    </span>
+
                                 </button>
 
                             </span>
